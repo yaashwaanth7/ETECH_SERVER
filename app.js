@@ -5,6 +5,7 @@ const payments = require("./routes/paymentRoutes");
 const others = require("./routes/otherRoutes")
 const {ErrorMiddleware} = require("./middleware/Error.js");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const app = express();
 
 // using middlewares
@@ -14,7 +15,11 @@ app.use(express.urlencoded({
 }));
 
 app.use(cookieParser());  // req.cookies ka liya use karna hai
-
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+    methods: ["GET","POST","PUT","DELETE"]
+}))
 // Importing and using routes
 
 app.use("/api/v1",course);
