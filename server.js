@@ -33,6 +33,10 @@ nodeCron.schedule("0 0 0 1 * *",async()=>{ // every month
 
 // temp();
 
+app.get((req,res)=>{
+  res.send("Working fine")
+})
+
 app.listen(process.env.PORT,()=>{
     console.log(`Server is listening to the port:${process.env.PORT}`);
 })
