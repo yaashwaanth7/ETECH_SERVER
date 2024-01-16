@@ -33,8 +33,8 @@ nodeCron.schedule("0 0 0 1 * *",async()=>{ // every month
 
 // temp();
 
-app.get((req,res)=>{
-  res.send("Working fine")
+app.get("/",(req,res)=>{
+  res.send(`<h1>Route is working fine</h1>`)
 })
 
 app.listen(process.env.PORT,()=>{
